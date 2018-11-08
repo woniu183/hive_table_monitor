@@ -11,7 +11,7 @@ object RemoteHdfsUtil {
   var conf = new Configuration()
 
   /**
-    * hdfs://hadoop-master-jishi-01:8020,hadoop-master-jishi-02:8020
+    *
     * @param url
     * @return
     */
