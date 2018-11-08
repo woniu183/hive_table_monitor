@@ -1,0 +1,1 @@
+SELECT * FROM （SELECT  B.Name AS Db ,A.Tbl_Name AS Table_Name,A.Sd_Id,A.Tbl_Type,B.Db_Location_Uri  FROM Tbls A, Dbs B WHERE A.Db_Id=B.`Db_Id`  ;）a,(SELECT  B.Name AS Db ,A.Tbl_Name AS Table_Name,A.Sd_Id,A.Tbl_Type,B.Db_Location_Uri  FROM Tbls A, Dbs B WHERE A.Db_Id=B.`Db_Id` )b WHERE Test1.Sd_Id AND Test2.`Sd_Id` WHERE Test1.`Table_Name` LIKE '%Bdm%'

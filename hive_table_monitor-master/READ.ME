@@ -1,0 +1,45 @@
+﻿# hive_table_monitor
+
+##1.create table for  collect hive table
+
+   CREATE TABLE `t_hive_tableinfo` (
+     `DATE` varchar(20) NOT NULL,
+     `DB` varchar(20) NOT NULL,
+     `TABLE_NAME` varchar(100) NOT NULL,
+     `SD_ID` varchar(50) DEFAULT NULL,
+     `TBL_TYPE` varchar(50) DEFAULT NULL,
+     `CREATE_TIME` varchar(50) DEFAULT NULL,
+     `LOCATION` varchar(200) DEFAULT NULL,
+     `SLIB` varchar(100) DEFAULT NULL,
+     `FILESIZE` varchar(100) DEFAULT NULL,
+     `WRITE_COUNT` varchar(50) DEFAULT NULL,
+     `READ_COUNT` varchar(50) DEFAULT NULL,
+     `src` varchar(200) DEFAULT NULL,
+     PRIMARY KEY (`DATE`,`DB`,`TABLE_NAME`)
+   ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+
+##2.compile code 
+   mvn assembly:assembly
+    
+
+
+
+##3.submit code
+   nohup
+   /data/spark/software/spark-2.3.1/bin/spark-submit
+   --queue default
+   --class service.CollectHiveTableSize
+   --master yarn
+   --executor-memory 16g --num-executors 16 --executor-cores 4
+   --driver-memory 8g
+   /data/wxh/HiveTableInfoCollect-1.0-SNAPSHOT-jar-with-dependencies.jar
+   /apps/hdfs_audit_log/20180910/
+   /data/wxh/conf.properties
+   > 1.log &
+##4.why make cmd open to open_*
+   The open command occupies the vast majority of all commands, 
+   so you need to add a random number to break the open command to different nodes.
+
+
+   
