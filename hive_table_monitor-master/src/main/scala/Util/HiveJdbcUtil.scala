@@ -88,28 +88,7 @@
      result.toString.split("LOCATION").apply(1).split('\'').apply(1)
     }
 
-       /**
-      def main(args: Array[String]): Unit = {
-       // val  con = DriverManager.getConnection("jdbc:hive2://172.172.240.1:10000/default", "hive", "")
-
-       val  conn1= getConnection("172.172.240.1", 10000, "hive", "")
-        /**
-        val stmt = con.createStatement
-        val  res = stmt.executeQuery("show databases")
-        while ( {
-          res.next
-        }) println(res.getString(1))*/
-
-       // getDataBases(connection)
-       //val conn4fdm= Connection4db("172.172.240.1", 10000, "hive", "","fdm")
-       //  getTables4DB(conn4fdm)
-
-       // getShowCreateTable("fdm","fdm_wxbot_group_list_da")
-       println( getTableLocation(conn1,"fdm","fdm_wxbot_group_list_da")  )
-        conn1.close()
-
-      }
-         **/
+    
 
   }
 
