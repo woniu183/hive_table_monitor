@@ -6,7 +6,7 @@ import java.sql.DriverManager
 object igniteTest {
   def main(args: Array[String]): Unit = {
     Class.forName("org.apache.ignite.IgniteJdbcThinDriver")
-    val conn = DriverManager.getConnection("jdbc:ignite:thin://172.172.178.210:10800/")
+    val conn = DriverManager.getConnection("jdbc:ignite:thin://******:*****/")
     // Get data// Get data
 
     try {
